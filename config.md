@@ -2,6 +2,9 @@ Babel used to transpile from JSX to JS
 JS always in { 'this is treated as JavaScript code' }
 JSX must return a single element
 ex: const JSX = <h1>Hello JSX!</h1>;
+<br> = <br />
+
+<hr> = <hr />
 
 <!-- {/* */} << this only --> for comments
 
@@ -10,6 +13,6 @@ ex: const JSX = <h1>Hello JSX!</h1>;
    (ex. ReactDOM.render(JSX, document.getElementById('root')) placed inside JSX)
 2. ReactDOM.render(<ComponentToRender />, targetNode)
    class = className
-   <br> = <br />
-
-<hr> = <hr />
+3. Setting default props:
+   MyComponent.defaultProps = { items: 0 } OR MyComponent.defaultProps = { location: 'San Francisco' }
+4. Items.propTypes = {quantity: PropTypes.number.isRequired} <- Defining propTypes for the Items component to require quantity as a prop and verify that it is of type number.
