@@ -162,3 +162,71 @@ class ShoppingCart extends React.Component {
     return <Items quantity={10} />;
   }
 }
+
+//Accessing props, using this.props:
+class ReturnTempPassword extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        {/* HERE */}
+        <p>
+          Your temporary password is: <strong>{this.props.tempPassword}</strong>
+        </p>
+
+        {/* HERE */}
+      </div>
+    );
+  }
+}
+
+class ResetPassword extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h2>Reset Password</h2>
+        <h3>We've generated a new temporary password for you.</h3>
+        <h3>Please reset this password from your account settings ASAP.</h3>
+        {/* HERE */}
+        <ReturnTempPassword tempPassword={'String8characterslong'} />
+        {/* HERE */}
+      </div>
+    );
+  }
+}
+
+//Create Camper component:
+
+class CampSite extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <Camper />
+      </div>
+    );
+  }
+}
+// HERE
+class Camper extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return <p>CamperBot</p>;
+  }
+}
+Camper.defaultProps = {
+  name: 'CamperBot',
+};
+
+Camper.propTypes = {
+  name: PropTypes.string.isRequired,
+};
