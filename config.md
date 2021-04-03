@@ -26,3 +26,5 @@ ex: const JSX = <h1>Hello JSX!</h1>;
    In return data can be accessed with {this.state} or with {name} (if we use JS syntax above)
 7. To change state in Component(outside of Component's braces):
    this.setState({ name: 'Test' });
+8. 'this'(gives access to properties on class):
+   this.props or this.state

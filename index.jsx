@@ -255,3 +255,110 @@ class MyComponent extends React.Component {
     );
   }
 }
+//Bind 'this' method:
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: 'Hello',
+    };
+    // HERE
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {
+    this.setState({
+      text: 'You clicked!',
+    });
+  }
+  render() {
+    return (
+      <div>
+        {/* HERE */}
+        <button onClick={this.handleClick}>Click Me</button>
+        <h1>{this.state.text}</h1>
+      </div>
+    );
+  }
+}
+
+//Toggle Task:
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visibility: false,
+    };
+    // HERE
+    this.toggleVisibility = this.toggleVisibility.bind(this);
+  }
+  // HERE
+  toggleVisibility() {
+    this.setState((state) => ({
+      visibility: (state.visibility = !state.visibility),
+    }));
+  }
+  render() {
+    if (this.state.visibility) {
+      return (
+        <div>
+          <button onClick={this.toggleVisibility}>Click Me</button>
+          <h1>Now you see me!</h1>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <button onClick={this.toggleVisibility}>Click Me</button>
+        </div>
+      );
+    }
+  }
+}
+
+//Simple Counter:
+class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0,
+    };
+    // HERE
+    this.increment = this.increment.bind(this);
+    this.decrement = this.decrement.bind(this);
+    this.reset = this.reset.bind(this);
+  }
+  // HERE
+  increment() {
+    this.setState((state) => ({
+      count: state.count + 1,
+    }));
+  }
+
+  decrement() {
+    this.setState((state) => ({
+      count: state.count - 1,
+    }));
+  }
+
+  reset() {
+    this.setState((state) => ({
+      count: (state.count = 0),
+    }));
+  }
+  render() {
+    return (
+      <div>
+        <button className="inc" onClick={this.increment}>
+          Increment!
+        </button>
+        <button className="dec" onClick={this.decrement}>
+          Decrement!
+        </button>
+        <button className="reset" onClick={this.reset}>
+          Reset
+        </button>
+        <h1>Current Count: {this.state.count}</h1>
+      </div>
+    );
+  }
+}
