@@ -15,4 +15,14 @@ ex: const JSX = <h1>Hello JSX!</h1>;
    class = className
 3. Setting default props:
    MyComponent.defaultProps = { items: 0 } OR MyComponent.defaultProps = { location: 'San Francisco' }
-4. Items.propTypes = {quantity: PropTypes.number.isRequired} <- Defining propTypes for the Items component to require quantity as a prop and verify that it is of type number.
+4. Setting property types:
+   Items.propTypes = {quantity: PropTypes.number.isRequired} <- Defining propTypes for the Items component to require quantity as a prop and verify that it is of type number.
+5. Declaring data within state:
+   this.state = {name: 'Test'}
+   Calling data from state:
+   <p>{this.state.name}</p> //Test
+6. To initialize state in Constructor:
+   In render() data can be accessed with this.state; or through JS syntax(like variable or function. Ex: const name = this.state.name;)
+   In return data can be accessed with {this.state} or with {name} (if we use JS syntax above)
+7. To change state in Component(outside of Component's braces):
+   this.setState({ name: 'Test' });
