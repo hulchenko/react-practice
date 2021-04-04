@@ -400,3 +400,35 @@ class MyForm extends React.Component {
     );
   }
 }
+
+//Passing state as props to child element:
+class MyApp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: 'CamperBot',
+    };
+  }
+  render() {
+    return (
+      <div>
+        {/* HERE */}
+        <Navbar name={this.state.name} />
+      </div>
+    );
+  }
+}
+
+class Navbar extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        {/* HERE */}
+        <h1>Hello, my name is: {this.props.name}</h1>
+      </div>
+    );
+  }
+}
