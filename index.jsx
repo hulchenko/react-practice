@@ -445,3 +445,28 @@ class Colorful extends React.Component {
     return <div style={styles}>Style Me!</div>;
   }
 }
+
+//&& is similar to IF/ELSE statement:
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      display: true,
+    };
+    this.toggleDisplay = this.toggleDisplay.bind(this);
+  }
+  toggleDisplay() {
+    this.setState((state) => ({
+      display: !state.display,
+    }));
+  }
+  render() {
+    return (
+      <div>
+        <button onClick={this.toggleDisplay}>Toggle Display</button>
+        {/* HERE (if display = true, h1 will showm, otherwise - not*/}
+        {this.state.display === true && <h1>Displayed!</h1>}
+      </div>
+    );
+  }
+}
