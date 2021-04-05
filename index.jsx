@@ -522,3 +522,81 @@ class CheckUserAge extends React.Component {
     );
   }
 }
+
+//Render from Props:
+class Results extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    {
+      /* HERE */
+    }
+    return <h1>{this.props.fiftyFifty === true ? 'You Win!' : 'You Lose!'}</h1>;
+    {
+    }
+  }
+}
+
+class GameOfChance extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      counter: 1,
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {
+    this.setState({
+      counter: this.state.counter + 1, // HERE
+    });
+  }
+  render() {
+    const expression = Math.random() >= 0.5 ? true : false; // HERE
+    return (
+      <div>
+        <button onClick={this.handleClick}>Play Again</button>
+        {/* HERE */}
+        <Results fiftyFifty={expression} />
+        <p>{'Turn: ' + this.state.counter}</p>
+      </div>
+    );
+  }
+}
+
+//Dynamic style change:
+class GateKeeper extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      input: '',
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(event) {
+    this.setState({ input: event.target.value });
+  }
+  render() {
+    let inputStyle = {
+      border: '1px solid black',
+    };
+
+    {
+      // HERE
+      if (this.state.input.length > 15) {
+        inputStyle.border = '3px solid red';
+      }
+    }
+    return (
+      <div>
+        <h3>Don't Type Too Much:</h3>
+        <input
+          type="text"
+          style={inputStyle}
+          value={this.state.input}
+          onChange={this.handleChange}
+        />
+      </div>
+    );
+  }
+}
