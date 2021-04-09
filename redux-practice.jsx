@@ -85,3 +85,28 @@ const wakeUp = () => {
 };
 
 const store = Redux.createStore(immutableReducer);
+
+// ====================================
+
+const ADD = 'ADD'; //action type ADD
+
+const addMessage = (message) => {
+  //action creator addMessage()
+  return {
+    type: ADD,
+    message: message,
+  };
+};
+
+const messageReducer = (state = [], action) => {
+  //reducer
+  switch (action.type) {
+    case ADD:
+      return [...state, action.message];
+      break;
+    default:
+      return state;
+  }
+};
+
+const store = Redux.createStore(messageReducer); // Redux store
